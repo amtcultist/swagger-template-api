@@ -6,10 +6,16 @@ const expressJSDocSwagger = require('express-jsdoc-swagger');
 export function setupSwagger(app: Express) {
   const options: Options = {
     info: {
-      version: '1.0.0',
+      version: '6.9.420',
       title: 'ToDoListAPI',
       license: {
-        name: 'MIT',
+        name: 'MÍT(SẤY)',
+      },
+      description: 'A random API to handle a random todolist frontend',
+      contact: {
+        name: 'something-random',
+        url: 'stackoverflow.com',
+        email: 'something-random@gmail.com',
       },
     },
     security: {
@@ -26,7 +32,8 @@ export function setupSwagger(app: Express) {
     apiDocsPath: '/v3/docs',
     notRequiredAsNullable: true,
     swaggerUiOptions: {
-      openapi: '3.0.0',
+      swagger: '2.2.1',
+      openapi: '3.0.5',
     },
   };
   expressJSDocSwagger(app)(options);
