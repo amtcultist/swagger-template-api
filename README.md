@@ -9,7 +9,20 @@ always start with
 ```bash
 # npm run dev
 ```
+
+# Run distributed version
+
+```bash
+# npm run build
+# npm run start
+```
+
+# Access to the swagger document
+
+```bash
+# Run the app
+# Go to host:port/docs
+```
+
 # More info
-  * Swagger docs will available at localhost:3000/docs
   * Swagger json will available at localhost:3000/v3/docs
-  * npm run build -> npm run start for distribution version
