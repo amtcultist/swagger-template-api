@@ -24,7 +24,7 @@ const host: string = process.env.HOST ?? 'localhost';
 
 // Listen server
 app.listen(port, host, () => {
-  console.log('Server is running on port more than 2 and less than 4 x 1000');
+  console.log(`⚡Server is running on ${host}:${port}`);
 
   // Connecting to the database
   Container.get(MongooseSetup).initMongoose();
