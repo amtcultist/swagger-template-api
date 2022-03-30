@@ -25,4 +25,6 @@ always start with
 ```
 
 # More info
+  * Change the .env variable before continueing
+  * host and port can be found in .env file
   * Swagger json will available at host:port/v3/docs
