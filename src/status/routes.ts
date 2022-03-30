@@ -83,6 +83,7 @@ export default function (app: Express) {
    * @security BearerAuth
    * @summary Update a status by id
    * @param {string} statusId.path - Status's id
+   * @param {Status} request.body.required - Status
    * @tags Status Routes
    */
   app.put(

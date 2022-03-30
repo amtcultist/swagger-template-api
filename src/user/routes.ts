@@ -36,6 +36,7 @@ export default function (app: Express) {
   /**
    * GET /user
    * @security BearerAuth
+   * @summary Get list users
    * @param {string} username.query - Username filter
    * @param {string} email.query - Email filter
    * @param {string} name.query - Name filter

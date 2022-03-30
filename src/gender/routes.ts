@@ -37,16 +37,15 @@ export default function (app: Express) {
 
   /**
    * GET /gender
-   * @security BearerAuth
    * @summary Query for list of gender
    * @param {string} name.query - Gender's name
    * @param {string} sortBy.query - Pagination sort by
    * @param {number} page.query - default: 1 - Pagination page number
    * @param {number} limit.query - default: 10 - Pagination page size
    * @param {boolean} pagination.query - default: true - Use pagination
-   * @tags Gender
+   * @tags Gender Routes
    */
-  app.get('/gender', checkValidTokenMiddlewareHandler, findAllHandler);
+  app.get('/gender', findAllHandler);
 
   /**
    * GET /gender/{genderId}

@@ -146,5 +146,5 @@ export async function updateUserById(
   // Sanitizing
   if (!id || !isValidObjectId(id)) return;
 
-  return User.findByIdAndUpdate(id, user, { new: true });
+  return User.findByIdAndUpdate(id, user, { new: true }).populate('gender');
 }

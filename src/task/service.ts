@@ -33,7 +33,7 @@ export async function createTask(
 export async function findTaskByQuery(
   query: FilterQuery<TaskDocument>
 ): Promise<TaskDocument> {
-  return Task.findOne(query).lean();
+  return Task.findOne(query).populate('assignee').populate('status');
 }
 
 /**
@@ -45,7 +45,7 @@ export async function findTaskById(id: string): Promise<TaskDocument> {
   // Sanitizing
   if (!id || !isValidObjectId(id)) return;
 
-  return Task.findById(id);
+  return Task.findById(id).populate('assignee').populate('status');
 }
 
 /**
@@ -70,7 +70,7 @@ export async function deleteTaskById(id: string): Promise<TaskDocument> {
   // Sanitizing
   if (!id || !isValidObjectId(id)) return;
 
-  return Task.findByIdAndDelete(id);
+  return Task.findByIdAndDelete(id).populate('assignee').populate('status');
 }
 
 /**
@@ -86,5 +86,7 @@ export async function updateTaskById(
   // Sanitizing
   if (!id || !isValidObjectId(id)) return;
 
-  return Task.findByIdAndUpdate(id, task, { new: true });
+  return Task.findByIdAndUpdate(id, task, { new: true })
+    .populate('assignee')
+    .populate('status');
 }

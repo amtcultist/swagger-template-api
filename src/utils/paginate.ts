@@ -62,5 +62,6 @@ export function generalArrayPaginateRegex(target: any[]) {
  * @returns {k & any[] | k[]} - Casted array
  */
 export function stringOrArrayMap<k>(target: k) {
+  if (!target) return [];
   return Array.isArray(target) ? target : [target];
 }

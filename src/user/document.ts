@@ -3,16 +3,13 @@ import * as mongoose from 'mongoose';
 /**
  * User model
  * @typedef {object} User
- * @property {string} _id - User's mongodb _id
  * @property {string} username.required - User's username
  * @property {string} password.required - User's password
  * @property {string} email.required - User's email
  * @property {string} name.required - User's name
  * @property {string} phone.required - User's phone
  * @property {string} dateOfBirth.required - User's dateOfBirth
- * @property {gender} gender.required - User's gender
- * @property {string} createdAt - User's mongoDb createdAt
- * @property {string} updatedAt - User's mongoDb updatedAt
+ * @property {Gender} gender.required - User's gender
  */
 export interface UserDocument extends mongoose.Document {
   _id: string;

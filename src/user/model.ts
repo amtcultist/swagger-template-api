@@ -63,6 +63,21 @@ UserSchema.pre('save', async function (next: mongoose.HookNextFunction) {
   return next();
 });
 
+/**
+ * A function to comparePassword and avoid using bcrypt in controller
+ * @param {string} candidatePassword
+ * @returns {boolean}
+ */
+UserSchema.methods.comparePassword = async function (
+  candidatePassword: string
+) {
+  const user = this as UserDocument;
+
+  return bcrypt.compare(candidatePassword, user.password).catch((err) => {
+    console.error(err);
+  });
+};
+
 export default mongoose.model(
   'User',
   UserSchema

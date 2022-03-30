@@ -17,7 +17,8 @@ export async function checkValidTokenMiddlewareHandler(
   res: Response,
   next: NextFunction
 ): Promise<Response> {
-  const token = req.headers[process.env.TOKEN_HEADER];
+  let token = req.headers[process.env.TOKEN_HEADER].toString();
+  token = token.split(' ')[0] === 'Bearer' ? token.split(' ')[1] : token;
 
   /* Sanitizing */
   if (!token) {
@@ -49,7 +50,10 @@ export async function decodeTokenHandler(
   res: Response,
   next: NextFunction
 ): Promise<Response> {
-  const token = req.body.token.splice('Bearer '.length);
+  const token =
+    req.body.token.split(' ')[0] === 'Bearer'
+      ? req.body.token.split(' ')[1]
+      : req.body.token;
 
   // Sanitizing
   if (!token) {
