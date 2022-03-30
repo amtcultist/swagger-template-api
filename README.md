@@ -25,4 +25,4 @@ always start with
 ```
 
 # More info
-  * Swagger json will available at localhost:3000/v3/docs
+  * Swagger json will available at host:port/v3/docs
