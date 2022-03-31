@@ -17,8 +17,8 @@ export async function checkValidTokenMiddlewareHandler(
   res: Response,
   next: NextFunction
 ): Promise<Response> {
-  let token = req.headers[process.env.TOKEN_HEADER].toString();
-  token = token.split(' ')[0] === 'Bearer' ? token.split(' ')[1] : token;
+  let token = req.headers[process.env.TOKEN_HEADER]?.toString?.();
+  token = token?.split(' ')?.[0] === 'Bearer' ? token?.split(' ')?.[1] : token;
 
   /* Sanitizing */
   if (!token) {
